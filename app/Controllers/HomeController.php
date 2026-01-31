@@ -16,4 +16,5 @@ class HomeController {
         // Lưu ý: Các biến $message và $studentInfo sẽ có sẵn trong file home.php
         include 'views/home.php';
     }
+    
 }

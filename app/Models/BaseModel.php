@@ -1,18 +1,24 @@
 <?php
 namespace App\Models;
-
-use PDO; // Quan trọng
-use PDOException; // Quan trọng
+use PDO;
+use PDOException;
 
 class BaseModel {
-    protected $connect;
+    protected $pdo;
 
     public function __construct() {
+        // Thông số cấu hình Database
+        $host = "localhost";
+        $dbname = "lab2_db"; // Tên database của bạn
+        $username = "root";
+        $password = ""; 
+
         try {
-            // Nếu đã có 'use PDO' ở trên thì không cần \PDO
-            $this->connect = new PDO("mysql:host=localhost;dbname=lab2_db;charset=utf8", "root", "");
+            $this->pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+            // Thiết lập chế độ báo lỗi để dễ debug
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "Lỗi: " . $e->getMessage();
+            die("Lỗi kết nối database: " . $e->getMessage());
         }
     }
 }

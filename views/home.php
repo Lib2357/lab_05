@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Trang chủ MVC</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 50px; }
-        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        .info { color: #007bff; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1><?php echo $message; ?></h1>
-        <p>Thông tin từ Model: <span class="info"><?php echo $studentInfo; ?></span></p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="<?= $product['image'] ?>" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title"><?= $product['name'] ?></h3>
+                            <p class="text-danger h4 fw-bold"><?= number_format($product['price']) ?> VNĐ</p>
+                            <hr>
+                            <p class="card-text text-muted">Mô tả: <?= $product['description'] ?></p>
+                            <a href="index.php?page=product-list" class="btn btn-secondary">Quay lại danh sách</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
